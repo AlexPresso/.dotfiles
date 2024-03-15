@@ -1,68 +1,41 @@
 #!/bin/bash
 
 ##########################
-# STAGES
-##########################
-
-check_version() {
-  source "./version.sh" || (_error "Please 'cd' into the script directory before running it" && exit 1)
-}
-
-update_packages() {
-  _info "Updating packages..."
-  sudo pacman -Syu --noconfirm
-
-  _info "Done updating packages."
-}
-
-copy_dotfiles() {
-  _info "Copying dotfiles..."
-
-  cp -Rf "./.config" "$HOME/.config"
-  cp -R "./wallpapers" "$HOME/wallpapers"
-
-  _info "Done copying dotfiles."
-}
-
-prepare_installation() {
-  mkdir -p "$tmp_dir"
-}
-end_installation() {
-  rm -rf "$tmp_dir"
-}
-
-##########################
 # ENTRYPOINT
 ##########################
+source "./scripts/utils/variables.sh"
+source "./scripts/utils/functions.sh"
+
 trap handle_error ERR
 
-check_version
-
-source "./scripts/variables.sh"
-source "./scripts/utils.sh"
-
 # shellcheck disable=SC2154
-ask "Run AlexPresso's dotfiles installer v$installer_version" \
-  do_nothing \
-  exit
+check_version
+_info "AlexPresso's dotfiles installer v$installer_version"
 
 prepare_installation
 
-ask "Do you want to update packages before installation (optional but recommended)" \
-  update_packages \
-  do_nothing
+export v_update_packages=$(ask_yn "Do you want to update packages before installation (optional but recommended)")
+export v_package_manager=$(ask_choice "Which package manager do you want to install" "paru" "yay")
+export v_util_packages=$(ask_yn "Do you want to install util packages (nano, nmap, htop, dig, ...)")
+export v_terminal=$(ask_choice "Which terminal do you want to install" "alacritty" "kitty" "terminator")
+export v_qt_version=$(ask_choice "Which QT version do you want to use" "qt5ct" "qt6ct")
+export v_monitor_resolution=$(ask_choice "What's your monitor resolution" "1280x720" "1920x1080" "2560x1440" "2048x1080" "3840x2160")
+export v_monitor_refresh_rate=$(ask_choice "What's your monitor refresh rate (Hz)" "60" "120" "144" "160" "200" "240")
+export v_has_nvidia=$(ask_yn "Do you have an nvidia GPU")
+export v_install_dot_files=$(ask_yn "Do you want to install my dotfiles")
 
-run_stage "packages"
+if [[ "$(ask_yn "Run installation with these parameters")" == "n" ]]; then
+  exit 0
+fi
 
-ask "Do you have an nvidia GPU" \
-  "run_stage nvidia" \
-  do_nothing
+files=(./scripts/*.sh) #Arrays are indexed Globs are not
+for file in "${files[@]}"; do
+  # shellcheck disable=SC1090
+  source "$file"
+done
 
-copy_dotfiles
-
-#end_installation
-
+#clear
 _success "Done installing, it's recommended to reboot your system for everything to start properly."
-ask "Reboot now" \
-  "sudo reboot" \
-  do_nothing
+export v_reboot=$(ask_yn "Reboot now")
+
+end_installation
