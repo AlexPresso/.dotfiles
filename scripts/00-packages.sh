@@ -9,7 +9,7 @@ source "./scripts/utils/functions.sh"
 ##########################
 
 packages=(
-  hyprland hyprpaper #Hyprland
+  hyprland hyprlock hypridle #Hyprland
   pipewire pipewire-pulse wireplumber #Audio + Bluetooth Audio
   pamixer brightnessctl playerctl #Controllers
   waybar wofi neofetch #Look & feel
@@ -17,12 +17,6 @@ packages=(
   pavucontrol #Audio manager UI
   blueman #Bluetooth manager UI
   networkmanager #Networkmanager... (UI)
-
-  #... feel free to recommend other packages
-)
-
-aur_packages=(
-  hyprlock hypridle #More Hyprland
   swaync wlogout
 
   #... feel free to recommend other packages
