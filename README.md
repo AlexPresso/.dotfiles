@@ -1,4 +1,4 @@
-## .dotfiles
+## .dotfiles [WIIIIIIIIIIIIIIIIIIIIP]
 
 This is the repository where I store my dotfiles/config files with an installer
 so I don't have to reinstall and configure everything byhand everytime I switch to another PC.
