@@ -50,11 +50,13 @@ for kernel in $(cat /usr/lib/modules/*/pkgbase); do
 done
 _success "Done installing kernel headers."
 
-_info "Installing $v_package_manager package manager..."
-rm -rf "$inst_tmp_dir/$v_package_manager"
-git clone "https://aur.archlinux.org/$v_package_manager" "$inst_tmp_dir/$v_package_manager"
-(cd "$inst_tmp_dir/$v_package_manager" && makepkg -si --noconfirm 2>&1)
-_success "Done installing $v_package_manager package manager."
+if ! which "paru" &> /dev/null; then
+  _info "Installing $v_package_manager package manager..."
+  rm -rf "$inst_tmp_dir/$v_package_manager"
+  git clone "https://aur.archlinux.org/$v_package_manager" "$inst_tmp_dir/$v_package_manager"
+  (cd "$inst_tmp_dir/$v_package_manager" && makepkg -si --noconfirm 2>&1)
+  _success "Done installing $v_package_manager package manager."
+fi
 
 _info "Installing base packages..."
 _aur_install \
