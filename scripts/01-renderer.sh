@@ -73,17 +73,4 @@ if [[ "$v_has_nvidia" == "y" ]]; then
 
     _success "Done injecting nvidia kernel module into GRUB modules."
   fi
-
-  {
-    echo "env = LIBVA_DRIVER_NAME,nvidia"
-    echo "env = GBM_BACKEND,nvidia-drm"
-    echo "env = __GLX_VENDOR_LIBRARY_NAME,nvidia"
-    echo "env = __GL_GSYNC_ALLOWED,1"
-  } >> "$HOME/.config/hypr/env.conf"
-else
-  if hostnamectl | grep -q "Chassis: vm"; then
-    {
-      echo "env = WLR_RENDERER_ALLOW_SOFTWARE,1"
-    } >> "$HOME/.config/hypr/env.conf"
-  fi
 fi
