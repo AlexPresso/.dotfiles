@@ -54,6 +54,12 @@ ask_choice() {
   done
 }
 
+ask_input() {
+    >&2 printf "\e[0m[%s] \e[94m%s ? : \e[0m" "$(date '+%Y-%m-%d %H:%M:%S')" "$1"
+    read -r answer
+    echo "$answer" && return 0
+}
+
 handle_error() {
   exit 1
 }
@@ -83,6 +89,7 @@ _aur_install() {
 
 replace_variables() {
   sed -i "s/@rp_terminal@/$v_terminal/g" "$1"
+  sed -i "s/@rp_kb_layout@/$v_kb_layout/g" "$1"
   sed -i "s/@rp_qt_version@/$v_qt_version/g" "$1"
   sed -i "s/__rp_monitor_resolution__/$v_monitor_resolution/g" "$1"
   sed -i "s/__rp_monitor_refresh_rate__/$v_monitor_refresh_rate/g" "$1"

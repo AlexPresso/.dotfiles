@@ -48,10 +48,9 @@ if [[ "$v_has_nvidia" == "y" ]]; then
         MODULES+=("$module")
       fi
     done
-
-    sed -i "/^MODULES=/c\\MODULES=(${MODULES[*]})" "/etc/mkinitcpio.conf"
   fi
 
+  sudo sed -i "/^MODULES=/c\MODULES=(${MODULES[*]})" "/etc/mkinitcpio.conf"
   sudo mkinitcpio -P
   _success "Done adding nvidia modules to initramfs"
 

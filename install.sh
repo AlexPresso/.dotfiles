@@ -18,6 +18,7 @@ export v_update_packages=$(ask_yn "Do you want to update packages before install
 export v_package_manager=$(ask_choice "Which package manager do you want to install" "paru" "yay")
 export v_util_packages=$(ask_yn "Do you want to install util packages (nano, nmap, htop, dig, ...)")
 export v_terminal=$(ask_choice "Which terminal do you want to install" "alacritty" "kitty" "terminator")
+export v_kb_layout=$(ask_input "What's your keyboard layout")
 export v_qt_version=$(ask_choice "Which QT version do you want to use" "qt5ct" "qt6ct")
 export v_monitor_resolution=$(ask_choice "What's your monitor resolution" "1280x720" "1920x1080" "2560x1440" "2048x1080" "3840x2160")
 export v_monitor_refresh_rate=$(ask_choice "What's your monitor refresh rate (Hz)" "60" "120" "144" "160" "200" "240")

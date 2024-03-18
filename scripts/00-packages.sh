@@ -12,7 +12,7 @@ packages=(
   hyprland hyprlock hypridle #Hyprland
   pipewire pipewire-pulse wireplumber #Audio + Bluetooth Audio
   pamixer brightnessctl playerctl #Controllers
-  waybar wofi neofetch #Look & feel
+  waybar wofi neofetch swww #Look & feel
   thunar thunar-archive-plugin gvfs gvfs-mtp #Filemanager UI
   pavucontrol #Audio manager UI
   blueman #Bluetooth manager UI
