@@ -12,6 +12,8 @@ nvidia_packages=(
   nvidia-dkms
   nvidia-settings
   nvidia-utils
+  nvtop
+  mangohud-git
   libva
   libva-nvidia-driver-git
 )

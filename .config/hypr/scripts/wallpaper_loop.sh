@@ -1,14 +1,14 @@
 #!/bin/bash
 
-export SWWW_TRANSITION_FPS=60
-export SWWW_TRANSITION_TYPE=simple
-
 change_interval=300
 idx=0
 
 while true; do
   wallpapers=("$WALLPAPERS_PATH"/*)
-  swww img "${wallpapers[$idx]}"
+  swww img "${wallpapers[$idx]}" \
+    --transition-type wipe \
+    --transition-angle 30 \
+    --transition-fps 60
 
   ((idx++))
   if [[ $idx -ge "${#wallpapers[@]}" ]]; then

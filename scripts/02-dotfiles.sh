@@ -15,14 +15,14 @@ if [[ "$v_install_dot_files" == "y" ]]; then
   mkdir -p "$HOME/wallpapers"
 
   cp -Rf ./.config/* "$HOME/.config"
-  cp -R ./wallpapers/* "$HOME/wallpapers"
+  cp -Rf ./wallpapers/* "$HOME/wallpapers"
 
-  _info "Configuring dotfile..."
+  _info "Configuring dotfiles..."
   find "$HOME/.config" -type f | while IFS= read -r file; do
     replace_variables "$file"
 
     if [[ $(basename "$file") == *.sh ]]; then
-      chmod +x "$file"
+      chmod u+x "$file"
     fi
   done
   _success "Done injecting your settings."

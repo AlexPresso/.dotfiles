@@ -25,6 +25,7 @@ packages=(
 util_packages=(
   nano htop
   nmap bind
+  cfv
 
   #... feel free to recommend other packages
 )
