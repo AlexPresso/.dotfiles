@@ -12,12 +12,14 @@ packages=(
   hyprland hyprlock hypridle #Hyprland
   pipewire pipewire-pulse wireplumber #Audio + Bluetooth Audio
   pamixer brightnessctl playerctl #Controllers
-  waybar wofi neofetch swww #Look & feel
+  aylurs-gtk-shell wofi neofetch swww #Look & feel
   thunar thunar-archive-plugin gvfs gvfs-mtp #Filemanager UI
   pavucontrol #Audio manager UI
   blueman #Bluetooth manager UI
   networkmanager #Networkmanager... (UI)
   swaync wlogout
+
+  ttf-jetbrains-mono ttf-nerd-fonts-symbols
 
   #... feel free to recommend other packages
 )

@@ -1,5 +1,7 @@
 #!/bin/bash
 
+swww query || swww init
+
 change_interval=300
 idx=0
 

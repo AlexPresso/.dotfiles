@@ -1,0 +1,17 @@
+[global_config]
+  borderless = True
+[keybindings]
+[profiles]
+  [[default]]
+    show_titlebar = False
+    scrollbar_position = hidden
+[layouts]
+  [[default]]
+    [[[window0]]]
+      type = Window
+      parent = ""
+    [[[child1]]]
+      type = Terminal
+      parent = window0
+      profile = default
+[plugins]
