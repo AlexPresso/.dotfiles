@@ -26,7 +26,7 @@ packages=(
 
 util_packages=(
   nano htop
-  nmap bind
+  nmap bind mtr
 
   #... feel free to recommend other packages
 )

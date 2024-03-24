@@ -33,14 +33,8 @@
     "on-click": "activate",
     "format": "{icon}",
     "format-icons": {
-      "default": "",
-      "active": ""
-    },
-    "persistent_workspaces": {
-      "1": [],
-      "2": [],
-      "3": [],
-      "4": []
+      "default": "\uF444",
+      "active": "\uF192"
     }
   },
   "network": {
