@@ -1,0 +1,69 @@
+{
+  "layer": "top",
+  "position": "top",
+  "height": 30,
+  "margin": "0 0 0 0",
+
+  "modules-left": [
+    "custom/logo",
+    "hyprland/workspaces"
+  ],
+
+  "modules-right": [
+    "network",
+    "bluetooth",
+    "wireplumber",
+    "backlight",
+    "temperature",
+    "battery",
+    "clock",
+    "custom/power"
+  ],
+
+
+  // ###########################
+  // # MODULES
+  // ###########################
+  "custom/logo": {
+    "format": "  ",
+    "tooltip": false,
+    "on-click": "wofi &"
+  },
+  "hyprland/workspaces": {
+    "on-click": "activate",
+    "format": "{icon}",
+    "format-icons": {
+      "default": "",
+      "active": ""
+    },
+    "persistent_workspaces": {
+      "1": [],
+      "2": [],
+      "3": [],
+      "4": []
+    }
+  },
+  "network": {
+    "format-wifi": "{icon}",
+    "format-icons": [],
+    "format-ethernet": "",
+    "format-alt": "",
+    "format-disconnected": "",
+    "tooltip-format-wifi": "{icon} {essid}\n⇣{bandwidthDownBytes}  ⇡{bandwidthUpBytes}",
+    "tooltip-format-ethernet": "󰀂  {ifname}\n⇣{bandwidthDownBytes}  ⇡{bandwidthUpBytes}",
+    "tooltip-format-disconnected": "Disconnected",
+    "on-click": "networkmanager",
+    "interval": 5,
+    "nospacing": 1
+  },
+  "clock": {
+    "tooltip-format": "<tt>{calendar}</tt>",
+    "format-alt": "  {:%a, %d %b %Y}",
+    "format": "  {:%I:%M %p}"
+  },
+  "custom/power": {
+    "format": "󰤆",
+    "tooltip": false,
+    "on-click": "~/.config/hypr/powermenu.sh &"
+  }
+}
