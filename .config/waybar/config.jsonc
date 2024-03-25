@@ -19,8 +19,9 @@
   ],
 
   "modules-right": [
-    "group/interfaces",
     "group/monitoring",
+    "group/control",
+    "group/interfaces",
     "battery",
     "group/power"
   ]

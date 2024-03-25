@@ -19,6 +19,33 @@
     "on-scroll-down": "hyprctl dispatch workspace e-1"
   },
 
+  "backlight": {
+    "format": "{percent}",
+    "format-icons": [
+      "\uDB80\uDF36",
+      "\uDB86\uDE4E",
+      "\uDB86\uDE4F",
+      "\uDB86\uDE50",
+      "\uDB86\uDE51",
+      "\uDB86\uDE52",
+      "\uDB86\uDE53",
+      "\uDB86\uDE54",
+      "\uDB86\uDE55",
+      "\uDB86\uDE56",
+      "\uDB81\uDEE8"
+    ]
+  },
+  "wireplumber": {
+    "format": "{icon}",
+    "format-icons": [ "\uDB81\uDD7F", "\uDB81\uDD80", "\uDB81\uDD7E" ],
+    "format-muted": "\uDB81\uDF5F",
+    "on-click": "",
+    "scroll-step": "2"
+  },
+
+  "bluetooth": {
+    "format": "\uDB80\uDCAF"
+  },
   "network": {
     "format-wifi": "{icon}",
     "format-icons": [ "\uDB82\uDD2F", "\uDB82\uDD1F", "\uDB82\uDD22", "\uDB82\uDD25", "\uDB82\uDD28" ],

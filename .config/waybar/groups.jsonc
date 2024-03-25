@@ -1,15 +1,24 @@
 {
-  "group/interfaces": {
-    "orientation": "inherit",
-    "modules": [
-      "network"
-    ]
-  },
-
   "group/monitoring": {
     "orientation": "inherit",
     "modules": [
       "temperature"
+    ]
+  },
+
+  "group/control": {
+    "orientation": "inherit",
+    "modules": [
+      "backlight",
+      "wireplumber"
+    ]
+  },
+
+  "group/interfaces": {
+    "orientation": "inherit",
+    "modules": [
+      "bluetooth",
+      "network"
     ]
   },
 
