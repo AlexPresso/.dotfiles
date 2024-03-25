@@ -1,0 +1,29 @@
+{
+  "group/interfaces": {
+    "orientation": "inherit",
+    "modules": [
+      "network"
+    ]
+  },
+
+  "group/monitoring": {
+    "orientation": "inherit",
+    "modules": [
+      "temperature"
+    ]
+  },
+
+  "group/power": {
+    "orientation": "inherit",
+    "drawer": {
+      "children-class": "power-hover",
+      "transition-left-to-right": false
+    },
+    "modules": [
+      "custom/power",
+      "custom/power",
+      "custom/power",
+      "custom/power"
+    ]
+  }
+}

@@ -1,0 +1,27 @@
+{
+  "layer": "top",
+  "position": "top",
+  "height": 36,
+  "margin": "16 18 0 18",
+
+  "include": [
+    "~/.config/waybar/groups.jsonc",
+    "~/.config/waybar/modules.jsonc"
+  ],
+
+  "modules-left": [
+    "custom/logo",
+    "hyprland/workspaces"
+  ],
+
+  "modules-center": [
+    "clock"
+  ],
+
+  "modules-right": [
+    "group/interfaces",
+    "group/monitoring",
+    "battery",
+    "group/power"
+  ]
+}

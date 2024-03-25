@@ -1,46 +1,28 @@
 {
-  "layer": "top",
-  "position": "top",
-  "height": 30,
-  "margin": "0 0 0 0",
-
-  "modules-left": [
-    "custom/logo",
-    "hyprland/workspaces"
-  ],
-
-  "modules-right": [
-    "network",
-    "bluetooth",
-    "wireplumber",
-    "backlight",
-    "temperature",
-    "battery",
-    "clock",
-    "custom/power"
-  ],
-
-
-  // ###########################
-  // # MODULES
-  // ###########################
   "custom/logo": {
     "format": "  ",
     "tooltip": false,
     "on-click": "wofi &"
   },
+
   "hyprland/workspaces": {
     "on-click": "activate",
     "format": "{icon}",
+    "persistent-workspaces": {
+      "*": 4
+    },
     "format-icons": {
       "default": "\uF444",
       "active": "\uF192"
-    }
+    },
+    "on-scroll-up": "hyprctl dispatch workspace e+1",
+    "on-scroll-down": "hyprctl dispatch workspace e-1"
   },
+
   "network": {
     "format-wifi": "{icon}",
-    "format-icons": [],
-    "format-ethernet": "",
+    "format-icons": [ "\uDB82\uDD2F", "\uDB82\uDD1F", "\uDB82\uDD22", "\uDB82\uDD25", "\uDB82\uDD28" ],
+    "format-ethernet": "\uDB80\uDE00",
     "format-alt": "",
     "format-disconnected": "",
     "tooltip-format-wifi": "{icon} {essid}\n⇣{bandwidthDownBytes}  ⇡{bandwidthUpBytes}",
@@ -50,11 +32,13 @@
     "interval": 5,
     "nospacing": 1
   },
+
   "clock": {
     "tooltip-format": "<tt>{calendar}</tt>",
     "format-alt": "  {:%a, %d %b %Y}",
     "format": "  {:%I:%M %p}"
   },
+
   "custom/power": {
     "format": "󰤆",
     "tooltip": false,
