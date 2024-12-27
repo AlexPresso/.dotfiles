@@ -1,34 +1,34 @@
 #!/bin/bash
 
-##########################
-# ENTRYPOINT
-##########################
 source "./scripts/utils/variables.sh"
 source "./scripts/utils/functions.sh"
 
 trap handle_error ERR
 
-# shellcheck disable=SC2154
-check_version
-_info "AlexPresso's dotfiles installer v$installer_version"
+##########################
+# ENTRYPOINT
+##########################
 
 prepare_installation
 
 export v_update_packages=$(ask_yn "Do you want to update packages before installation (optional but recommended)")
-export v_package_manager=$(ask_choice "Which package manager do you want to install" "paru" "yay")
-export v_util_packages=$(ask_yn "Do you want to install util packages (nano, nmap, htop, dig, ...)")
-export v_terminal=$(ask_choice "Which terminal do you want to install" "alacritty" "kitty" "terminator")
-export v_kb_layout=$(ask_input "What's your keyboard layout")
-export v_qt_version=$(ask_choice "Which QT version do you want to use" "qt5ct" "qt6ct")
-export v_monitor_resolution=$(ask_choice "What's your monitor resolution" "1280x720" "1920x1080" "2560x1440" "2048x1080" "3840x2160")
-export v_monitor_refresh_rate=$(ask_choice "What's your monitor refresh rate (Hz)" "60" "120" "144" "160" "200" "240")
-export v_has_nvidia=$(ask_yn "Do you have an nvidia GPU")
-export v_install_dot_files=$(ask_yn "Do you want to install my dotfiles")
+_print_value "Update Packages" "$v_update_packages"
+export v_package_manager=$(ask_choice "Which AUR package-manager do you want to install" --limit=1 "paru" "yay")
+_print_value "AUR Package-Manager" "$v_package_manager"
+export v_additional_packages=$(ask_choice "Select additional packages to install" --no-limit "$(cat ./scripts/utils/additional_packages)")
+_print_value "Additional Packages To Install" "$v_additional_packages"
+export v_terminal=$(ask_choice "Which terminal do you want to install" --limit=1 "alacritty" "kitty" "terminator")
+_print_value "Terminal" "$v_terminal"
+export v_gpu_brand=$(ask_choice "Select your GPU brand" --limit=1 "nvidia" "amd" "intel" "none")
+_print_value "GPU Brand" "$v_gpu_brand"
+export v_kb_layout=$(ask_choice "What's your keyboard layout" --limit=1 "$(localectl list-keymaps)")
+_print_value "Keyboard Layout" "$v_kb_layout"
 
-if [[ "$(ask_yn "Run installation with these parameters")" == "n" ]]; then
+if [[ "$(ask_yn "Run installation with these parameters")" == "no" ]]; then
   exit 0
 fi
 
+echo ""
 files=(./scripts/*.sh) #Arrays are indexed Globs are not
 for file in "${files[@]}"; do
   # shellcheck disable=SC1090
@@ -36,7 +36,6 @@ for file in "${files[@]}"; do
 done
 
 #clear
-_success "Done installing, it's recommended to reboot your system for everything to start properly."
-export v_reboot=$(ask_yn "Reboot now")
-
-end_installation
+#
+#export v_reboot=$(ask_yn "Reboot now (recommended)")
+#end_installation

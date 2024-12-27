@@ -1,0 +1,25 @@
+
+[window]
+dimensions = {columns = 125, lines = 35} 
+decorations = "Buttonless"
+opacity = 0.95
+startup_mode = "Windowed"
+decorations_theme_variant = "Dark"
+padding = { x = 10, y = 10 }
+
+[font]
+size = 11.0
+[font.normal]
+family = "JetBrains Mono"
+style = "Regular"
+
+[font.bold]
+family = "JetBrains Mono"
+style = "Bold"
+
+[font.italic]
+family = "JetBrains Mono"
+style = "Italic"
+
+[general]
+import = ["~/.config/alacritty/themes/tokyo-night-alacritty-theme/tokyo-night.toml"]
