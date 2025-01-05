@@ -21,4 +21,4 @@ Feel free to use it, contribute or make suggestions.
 git clone --recursive https://github.com/AlexPresso/.dotfiles
 cd .dotfiles && ./install.sh
 ```
-
+[![asciicast](https://asciinema.org/a/zynVMrDxHMfPLVfHcUmAGWa3B.svg)](https://asciinema.org/a/zynVMrDxHMfPLVfHcUmAGWa3B)
