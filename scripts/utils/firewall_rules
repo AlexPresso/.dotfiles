@@ -1,0 +1,25 @@
+#!/usr/sbin/nft -f
+
+flush ruleset
+
+table inet filter {
+        chain inbound {
+                type filter hook input priority 0; policy drop;
+
+                ct state vmap { established: accept, related: accept, invalid: drop }
+                iif lo accept
+        }
+
+        chain forward {
+                type filter hook forward priority 0; policy drop;
+
+                iifname { "docker0" } accept
+                oifname { "docker0" } accept
+
+                ct state { established, related } accept
+        }
+
+        chain outbound {
+                type filter hook output priority 0; policy accept;
+        }
+}

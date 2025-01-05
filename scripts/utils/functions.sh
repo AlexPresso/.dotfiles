@@ -56,7 +56,7 @@ prepare_installation() {
 end_installation() {
   rm -rf "$inst_tmp_dir"
 
-  if [[ "$v_reboot" == 1 ]]; then
+  if [[ "$v_reboot" == "yes" ]]; then
     sudo reboot
   fi
 }

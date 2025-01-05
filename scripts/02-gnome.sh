@@ -7,6 +7,21 @@ gnome_packages=(
   gnome-tweaks
 )
 
+gnome_bloatware=(
+  gnome-console
+  gnome-contacts
+  gnome-maps
+  gnome-music
+  gnome-remote-desktop
+  gnome-tour
+  gnome-weather
+  gnome-software
+  epiphany
+  malcontent
+  totem
+  gnome-user-docs
+)
+
 _pacman "${gnome_packages[@]}"
 
 _log "info" "Downloading extensions installer..."
@@ -36,3 +51,11 @@ done
 _log "info" "Enabling GDM service..."
 
 sudo systemctl enable gdm
+
+_log "info" "Enabling NetworkManager..."
+
+sudo systemctl disable wpa_supplicant
+sudo systemctl enable NetworkManager
+
+_log "info" "Removing Gnome Bloatware..."
+sudo pacman -Rsn "${gnome_bloatware[@]}" --noconfirm

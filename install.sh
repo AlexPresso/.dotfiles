@@ -35,7 +35,7 @@ for file in "${files[@]}"; do
   source "$file"
 done
 
-#clear
-#
-#export v_reboot=$(ask_yn "Reboot now (recommended)")
-#end_installation
+clear
+
+export v_reboot=$(ask_yn "Reboot now (recommended)")
+end_installation

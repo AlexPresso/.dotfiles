@@ -10,6 +10,9 @@ declare -A gpu_drivers=(
   ["intel"]="mesa lib32-mesa xf86-video-intel vulkan-intel lib32-vulkan-intel"
 )
 
+_log "info" "Enabling multilib repository..."
+sudo sed -i '/\[multilib\]/,/Include/s/^#//g' /etc/pacman.conf
+
 _log "info" "Installing GPU drivers..."
 
 read -r -a drivers_to_install <<< "${gpu_drivers[${v_gpu_brand}]}"
