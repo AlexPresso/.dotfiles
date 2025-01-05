@@ -21,5 +21,9 @@ gsettings set org.gnome.desktop.background primary-color "#3071AE"
 gsettings set org.gnome.desktop.default-applications.terminal exec "alacritty"
 gsettings set org.gnome.desktop.default-applications.terminal exec-arg ""
 
+gsettings set org.gnome.desktop.calendar show-weekdate true
+gsettings set org.gnome.desktop.interface clock-format '24h'
+gsettings set org.gnome.desktop.interface clock-show-date true
+
 dconf load /org/gnome/shell/extensions/openbar/ < "./dconf/openbar.dconf"
 dconf load /org/gnome/settings-daemon/plugins/media-keys/custom-keybindings/ < "./dconf/shortcut-terminal.dconf"
