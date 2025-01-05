@@ -27,3 +27,5 @@ gsettings set org.gnome.desktop.interface clock-show-date true
 
 dconf load /org/gnome/shell/extensions/openbar/ < "./dconf/openbar.dconf"
 dconf load /org/gnome/settings-daemon/plugins/media-keys/custom-keybindings/ < "./dconf/shortcut-terminal.dconf"
+
+cp -f ./.bashrc "$HOME/.bashrc"
