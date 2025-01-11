@@ -56,6 +56,7 @@ _log "info" "Enabling NetworkManager..."
 
 sudo systemctl disable wpa_supplicant
 sudo systemctl enable NetworkManager
+sudo systemctl disable --now systemd-resolved #DNS Resolution conflicting
 
 _log "info" "Removing Gnome Bloatware..."
 sudo pacman -Rsn "${gnome_bloatware[@]}" --noconfirm
