@@ -16,9 +16,14 @@ _aur_install \
   noto-fonts-emoji
 fc-cache -fv
 
+_log "info" "Installing icon theme"
+_aur_install kora-icon-theme
+
 gsettings set org.gnome.desktop.interface gtk-theme "Adwaita-dark"
 gsettings set org.gnome.desktop.interface color-scheme "prefer-dark"
+gsettings set org.gnome.desktop.interface icon-theme "kora"
 gsettings set org.gnome.shell.extensions.user-theme name "Adwaita-dark"
+gsettings set org.gnome.desktop.interface accent-color "orange"
 
 gsettings set org.gnome.desktop.background picture-uri "file://$HOME/wallpapers/1.jpg"
 gsettings set org.gnome.desktop.background picture-uri-dark "file://$HOME/wallpapers/1.jpg"
@@ -33,5 +38,6 @@ gsettings set org.gnome.desktop.interface clock-show-date true
 
 dconf load /org/gnome/shell/extensions/openbar/ < "./dconf/openbar.dconf"
 dconf load /org/gnome/settings-daemon/plugins/media-keys/custom-keybindings/ < "./dconf/shortcut-terminal.dconf"
+dconf load /org/gnome/shell/extensions/blur-my-shell/ < "./dconf/blur-my-shell.dconf"
 
 cp -f ./.bashrc "$HOME/.bashrc"

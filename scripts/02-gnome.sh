@@ -42,6 +42,7 @@ gnome_extensions=(
   7332 # https://extensions.gnome.org/extension/7332/status-icons/
   6807 # https://extensions.gnome.org/extension/6807/system-monitor/
   5410 # https://extensions.gnome.org/extension/5410/grand-theft-focus/
+  3193 # https://extensions.gnome.org/extension/3193/blur-my-shell/
 )
 
 for extension in $(gnome-extensions list); do
