@@ -10,7 +10,7 @@ cp -Rf ./wallpapers/* "$HOME/wallpapers"
 
 _log "info" "Installing fonts"
 _aur_install \
-  ttf-jetbrains-mono
+  ttf-jetbrains-mono \
   ttf-ms-win11-auto \
   noto-fonts-cjk \
   noto-fonts-emoji

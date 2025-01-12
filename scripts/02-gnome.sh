@@ -20,6 +20,7 @@ gnome_bloatware=(
   malcontent
   totem
   gnome-user-docs
+  gnome-tour
 )
 
 _pacman "${gnome_packages[@]}"
@@ -40,6 +41,7 @@ gnome_extensions=(
   6580 # https://extensions.gnome.org/extension/6580/open-bar/
   7332 # https://extensions.gnome.org/extension/7332/status-icons/
   6807 # https://extensions.gnome.org/extension/6807/system-monitor/
+  5410 # https://extensions.gnome.org/extension/5410/grand-theft-focus/
 )
 
 for extension in $(gnome-extensions list); do
