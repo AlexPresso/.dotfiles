@@ -8,7 +8,13 @@ mkdir -p "$HOME/wallpapers"
 cp -Rf ./.config/* "$HOME/.config"
 cp -Rf ./wallpapers/* "$HOME/wallpapers"
 
-_aur_install ttf-jetbrains-mono
+_log "info" "Installing fonts"
+_aur_install \
+  ttf-jetbrains-mono
+  ttf-ms-win11-auto \
+  noto-fonts-cjk \
+  noto-fonts-emoji
+fc-cache -fv
 
 gsettings set org.gnome.desktop.interface gtk-theme "Adwaita-dark"
 gsettings set org.gnome.desktop.interface color-scheme "prefer-dark"
