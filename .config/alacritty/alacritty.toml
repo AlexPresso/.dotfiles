@@ -1,8 +1,7 @@
-
 [window]
 dimensions = {columns = 125, lines = 35} 
 decorations = "Buttonless"
-opacity = 0.95
+opacity = 0.93
 startup_mode = "Windowed"
 decorations_theme_variant = "Dark"
 padding = { x = 10, y = 10 }
