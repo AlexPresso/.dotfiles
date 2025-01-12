@@ -60,3 +60,10 @@ sudo systemctl disable --now systemd-resolved #DNS Resolution conflicting
 
 _log "info" "Removing Gnome Bloatware..."
 sudo pacman -Rsn "${gnome_bloatware[@]}" --noconfirm
+
+_log "info" "Installing fonts"
+_aur_install \
+  ttf-ms-win11-auto \
+  noto-fonts-cjk \
+  noto-fonts-emoji
+fc-cache -fv
